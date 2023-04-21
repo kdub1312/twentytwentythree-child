@@ -13,3 +13,18 @@ function my_theme_enqueue_styles() {
 		get_stylesheet_uri(),
 	);
 }
+
+add_action( 'wp_head', 'rf_add_ga' );
+if ( ! function_exists( 'rf_add_ga' ) ) {
+	function rf_add_ga() {
+			echo '<!-- Google tag (gtag.js) -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEX6TDPNPS"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag("js", new Date());
+			
+			  gtag("config", "G-FEX6TDPNPS");
+			</script>';
+	}
+}
