@@ -22,18 +22,26 @@ if ( ! function_exists( 'rf_add_ga' ) ) {
 	}
 }
 
-// add_action( 'wp_footer', 'prefix_footer_code' );
-// function prefix_footer_code() {
-// 		echo '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019479180746594"
-// 		crossorigin="anonymous"></script>
-// 			<ins class="adsbygoogle"
-// 				style="display:block; text-align:center;"
-// 				data-ad-layout="in-article"
-// 				data-ad-format="fluid"
-// 				data-ad-client="ca-pub-3019479180746594"
-// 				data-ad-slot="7707770834"></ins>
-// 			<script>
-// 			(adsbygoogle = window.adsbygoogle || []).push({});
-// 		</script>'
-// }
+add_action( 'wp_head', 'rf_enable_adsense' );
+if ( ! function_exists( 'rf_enable_adsense' ) ) {
+	function rf_enable_adsense() {
+			echo '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019479180746594"
+			crossorigin="anonymous"></script>';
+	}
+}
+
+add_action( 'wp_footer', 'prefix_footer_code' );
+function prefix_footer_code() {
+		echo '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019479180746594"
+		crossorigin="anonymous"></script>
+			<ins class="adsbygoogle"
+				style="display:block; text-align:center;"
+				data-ad-layout="in-article"
+				data-ad-format="fluid"
+				data-ad-client="ca-pub-3019479180746594"
+				data-ad-slot="7707770834"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>';
+}
 
