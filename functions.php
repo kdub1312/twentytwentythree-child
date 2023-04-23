@@ -1,11 +1,4 @@
 <?php
-/* Enqueue Styles */
-// if ( ! function_exists('thr_enqueue_styles') ) {
-//     function thr_enqueue_styles() {
-//         wp_enqueue_style( 'twenty-twenty-three-style-child', get_template_directory_uri() .'/style.css' );
-//     }
-//     add_action('wp_enqueue_scripts', 'thr_enqueue_styles');
-// }
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
@@ -28,3 +21,19 @@ if ( ! function_exists( 'rf_add_ga' ) ) {
 			</script>';
 	}
 }
+
+add_action( 'wp_footer', 'prefix_footer_code' );
+function prefix_footer_code() {
+		echo '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019479180746594"
+		crossorigin="anonymous"></script>
+			<ins class="adsbygoogle"
+				style="display:block; text-align:center;"
+				data-ad-layout="in-article"
+				data-ad-format="fluid"
+				data-ad-client="ca-pub-3019479180746594"
+				data-ad-slot="7707770834"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>'
+}
+
